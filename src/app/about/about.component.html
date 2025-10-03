@@ -1,0 +1,32 @@
+<div class="container">
+  <p>about work {{ age }}</p>
+  <!-- interpolation -->
+  <p>hello from {{ string_1 }}</p>
+  <p>
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint hic eligendi
+    repudiandae porro fuga laudantium. Perspiciatis, eaque eius aperiam corrupti
+    facilis laborum, ut, nam provident enim aspernatur incidunt pariatur
+    voluptatum.
+  </p>
+  <img [src]="imgSource" alt="" />
+  <p [class]="active ? 'bg-info' : 'bg-danger'">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque odio
+    voluptates eius, fugit impedit in ratione veritatis ullam ab repellat vero
+    blanditiis magni doloribus eum culpa dolorem velit, modi aspernatur.
+  </p>
+  <button class="btn btn-outline-success" (click)="sayHello()">success</button>
+
+  <form>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input
+        type="email"
+        class="form-control"
+        id="exampleInputEmail1"
+        aria-describedby="emailHelp"
+        (keyup)="printConsole($event)"
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

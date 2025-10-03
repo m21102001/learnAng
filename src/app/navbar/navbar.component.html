@@ -1,0 +1,67 @@
+<div
+  class="container-fuild shadow p-3 mb-5 bg-body-tertiary rounded bg-dark sticky-top"
+  data-bs-theme="dark"
+>
+  <ul class="nav justify-content-center">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="home" routerLinkActive="text-danger"
+        >Home</a
+      >
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="blog" routerLinkActive="text-danger"
+        >Blog</a
+      >
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="about" routerLinkActive="text-danger"
+        >About</a
+      >
+    </li>
+
+    <li class="nav-item dropdown">
+      <a
+        class="nav-link dropdown-toggle"
+        role="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+        routerLinkActive="text-danger"
+        [routerLinkActiveOptions]="{ exact: false }"
+      >
+        Contact
+      </a>
+      <ul class="dropdown-menu">
+        <li>
+          <a
+            class="dropdown-item"
+            routerLink="/contact/web"
+            routerLinkActive="text-danger"
+          >
+            web
+          </a>
+        </li>
+        <li>
+          <a
+            class="dropdown-item"
+            routerLink="/contact/mobile"
+            routerLinkActive="text-danger"
+          >
+            mobile
+          </a>
+        </li>
+      </ul>
+    </li>
+
+    <li class="text-white">
+      <span> {{ searchTerm }} </span>
+    </li>
+  </ul>
+
+  <input
+    class="form-control me-2"
+    type="search"
+    placeholder="Search"
+    aria-label="Search"
+    [(ngModel)]="searchTerm"
+  />
+</div>

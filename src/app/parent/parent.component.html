@@ -1,0 +1,10 @@
+<div class="bg-success fs-2 text-white p-3">
+  hello from parent
+  <p>how often the child have fun {{ funCounter }}</p>
+  <app-child
+    [toy]="toys[1]"
+    (fun)="onChildHavingFun($event)"
+    [valueFromParent]="msg"
+    (sendDataToParent)="handleChildMessage($event)"
+  ></app-child>
+</div>
