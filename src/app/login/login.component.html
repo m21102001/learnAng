@@ -1,0 +1,98 @@
+<div class="container">
+  <form [formGroup]="loginForm" (ngSubmit)="submitLoginGroup(loginForm)">
+    <div class="mb-3 row">
+      <label for="userName" class="col-sm-2 col-form-label">userName</label>
+      <div class="col-sm-10">
+        <input
+          type="text"
+          class="form-control"
+          id="userName"
+          placeholder="Your userName"
+          formControlName="userName"
+        />
+      </div>
+      <div
+        class="alert alert-danger"
+        *ngIf="
+          loginForm.get('userName')?.errors &&
+          loginForm.get('userName')?.touched
+        "
+      >
+        <option  *ngIf="loginForm.get('userName')?.errors?.['required']">
+          userName is erquired
+        </option >
+        <p *ngIf="loginForm.get('userName')?.errors?.['minlength']">
+          min length 3
+        </p>
+        <p *ngIf="loginForm.get('userName')?.errors?.['maxlength']">
+          max length 20
+        </p>
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+      <div class="col-sm-10">
+        <input
+          type="text"
+          class="form-control"
+          id="staticEmail"
+          placeholder="email"
+          formControlName="email"
+        />
+      </div>
+      <div
+        class="alert alert-danger"
+        *ngIf="
+          loginForm.get('email')?.errors && loginForm.get('email')?.touched
+        "
+      >
+        <p *ngIf="loginForm.get('email')?.errors?.['required']">
+          email is erquired
+        </p>
+        <p *ngIf="loginForm.get('email')?.errors?.['email']">not email</p>
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="inputPassword" class="col-sm-2 col-form-label"
+        >Password</label
+      >
+      <div class="col-sm-10">
+        <input
+          [type]="showPassword ? 'text' : 'password'"
+          class="form-control"
+          id="inputPassword"
+          placeholder="password"
+          formControlName="password"
+        />
+        <span class="btn btn-success" (click)="displayPassword()">show </span>
+        <div
+          class="alert alert-danger"
+          *ngIf="
+            loginForm.get('password')?.errors &&
+            loginForm.get('password')?.touched
+          "
+        >
+          <p *ngIf="loginForm.get('password')?.errors?.['required']">
+            password is erquired
+          </p>
+          <p *ngIf="loginForm.get('password')?.errors?.['minlength']">
+            min length 3
+          </p>
+          <p *ngIf="loginForm.get('password')?.errors?.['pattern']">
+            not match pattern
+          </p>
+          <p *ngIf="loginForm.get('password')?.errors?.['maxlength']">
+            max length 20
+          </p>
+        </div>
+      </div>
+    </div>
+    <button
+      class="btn btn-success"
+      [disabled]="loginForm.invalid"
+      type="submit"
+    >
+      login
+    </button>
+  </form>
+</div>

@@ -8,6 +8,38 @@
         >Home</a
       >
     </li>
+    <li class="nav-item dropdown">
+      <a
+        class="nav-link dropdown-toggle"
+        role="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+        routerLinkActive="text-danger"
+        [routerLinkActiveOptions]="{ exact: false }"
+      >
+        PassData
+      </a>
+      <ul class="dropdown-menu">
+        <li>
+          <a
+            class="dropdown-item"
+            routerLink="/passData/father"
+            routerLinkActive="text-danger"
+          >
+            web
+          </a>
+        </li>
+        <li>
+          <a
+            class="dropdown-item"
+            routerLink="/passData/son"
+            routerLinkActive="text-danger"
+          >
+            mobile
+          </a>
+        </li>
+      </ul>
+    </li>
     <li class="nav-item">
       <a class="nav-link" routerLink="blog" routerLinkActive="text-danger"
         >Blog</a
@@ -16,6 +48,16 @@
     <li class="nav-item">
       <a class="nav-link" routerLink="about" routerLinkActive="text-danger"
         >About</a
+      >
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/auth/login" routerLinkActive="text-danger"
+        >login</a
+      >
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/auth/register" routerLinkActive="text-danger"
+        >register</a
       >
     </li>
 

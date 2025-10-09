@@ -1,0 +1,5 @@
+.card:hover .card-desc {
+  line-clamp: unset;           /* Standard property */
+  -webkit-line-clamp: unset;   /* WebKit-prefixed property */
+  max-height: none;
+}

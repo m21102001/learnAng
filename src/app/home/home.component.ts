@@ -7,24 +7,28 @@ import { ProductService } from 'product.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  posts: any[] = [];
+  products: any[] = [];
+  searchTerm: string = ''
 
-  constructor(private _productsService: ProductService) { }
+  constructor(private _productServices: ProductService) { }
 
   ngOnInit(): void {
-    this._productsService.getPosts().subscribe({
+
+    this.getAllProducts()
+  }
+  getAllProducts() {
+    this._productServices.getProducts().subscribe({
       next: (data) => {
-        this.posts = data.slice(0, 10); // أول 10 بس
-        console.log(data);
+        this.products = data
+
+
       },
-    });
+      error: (err) => console.log(err)
+
+    })
+  }
+  trackByProductId(index: number, product: any): number {
+    return product.id;
   }
 
-  getAllPosts() {
-    this._productsService.getPosts().subscribe({
-      next: (data) => {
-        this.posts = data; // الكل من غير slice
-      },
-    });
-  }
 }

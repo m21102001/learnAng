@@ -1,0 +1,22 @@
+<!-- <div class="bg-success text-white p-3">
+  <h2>👨 I'm the Father</h2>
+
+  <p *ngIf="messageFromSon">📩 Message from Son: {{ messageFromSon }}</p>
+  <h2>👨 Parent</h2>
+  <input [(ngModel)]="parentMessage" placeholder="Type message..." />
+  <app-demo [data]="parentMessage"></app-demo>
+  ربط الأب مع الابن
+  <app-son (sendToFather)="handleSonMessage($event)"></app-son>
+</div> -->
+<div class="bg-primary text-white p-3">
+  <h2>👨 Parent Component</h2>
+
+  <button class="btn btn-light m-1" (click)="changeMessage()">
+    Change Message
+  </button>
+  <button class="btn btn-danger m-1" (click)="toggleChild()">
+    Toggle Child
+  </button>
+
+  <app-demo *ngIf="showChild" [data]="message"></app-demo>
+</div>

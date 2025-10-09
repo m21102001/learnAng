@@ -1,9 +1,44 @@
-<h2>Posts</h2>
-<ul>
-  <li *ngFor="let post of posts">
-    {{ post.title }}
-  </li>
-</ul>
-
-<button (click)="getAllPosts()">Show All</button>
-<app-parent></app-parent>
+<!-- <button (click)="getAllProducts()">Show All</button> -->
+<!-- <app-parent></app-parent> -->
+<div class="container text-center">
+  <div class="row">
+    <div class="mb-3 text-start">
+      <input
+        type="text"
+        class="form-control"
+        id="exampleFormControlInput1"
+        placeholder="search"
+        [(ngModel)]="searchTerm"
+      />
+    </div>
+  </div>
+  <div class="row align-items-start">
+    <div
+      class="col-md-3 my-2"
+      *ngFor="
+        let product of products | search : searchTerm;
+        trackBy: trackByProductId
+      "
+      [routerLink]="['/productDetails',product.id]"
+    >
+      <!-- (click)="getProduct(product.id.toString())" -->
+      <div class="card text-start" style="width: 14rem">
+        <div class="text-center">
+          <img
+            [src]="product.image"
+            class="card-img-top w-50"
+            style="height: 150px"
+            [alt]="product.title"
+          />
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{ product.title | truncate : 30 }}</h5>
+          <h5 class="card-title">{{ product.category }}</h5>
+          <p class="card-text card-desc">
+            {{ product.description | truncate : 120 }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

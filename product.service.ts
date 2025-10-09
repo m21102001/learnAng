@@ -6,11 +6,12 @@ import { Observable } from 'rxjs';
     providedIn: 'root'
 })
 export class ProductService {
-    private apiUrl = 'https://jsonplaceholder.typicode.com/posts'; // أو لينك API بتاعك
+    constructor(private _httpClient: HttpClient) { }
 
-    constructor(private http: HttpClient) { }
-
-    getPosts(): Observable<any> {
-        return this.http.get<any[]>(this.apiUrl);
+    getProducts(): Observable<any> {
+        return this._httpClient.get(`https://fakestoreapi.com/products`)
+    }
+    getProduct(id: string): Observable<any> {
+        return this._httpClient.get(`https://fakestoreapi.com/products/${id}`)
     }
 }

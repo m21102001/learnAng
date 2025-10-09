@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
+import { User } from 'src/models/user.model';
 
 @Component({
   selector: 'app-child',
@@ -15,7 +16,8 @@ export class ChildComponent implements OnChanges {
   }
   // pass data form parent to clild
   @Input() valueFromParent: string = ''
-  @Input() valueFromDad: string = ''
+  @Input() valueFromDad!:User
+
   @Output() sendDataToParent = new EventEmitter<string>();
 
   sayHello() {
@@ -25,5 +27,5 @@ export class ChildComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     console.log(changes);
   }
-  
+
 }

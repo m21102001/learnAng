@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./mobile.component.css']
 })
 export class MobileComponent {
-
+  show: boolean = false
 }

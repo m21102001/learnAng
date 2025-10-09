@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <img
+        [src]="ProductDetails?.image ?? './assets/images/404.jpeg'"
+        alt=""
+        class="w-100"
+      />
+    </div>
+    <div class="col-md-9">
+      <p>{{ ProductDetails?.title }}</p>
+      <p>{{ ProductDetails?.category }}</p>
+      <p>{{ ProductDetails?.description }}</p>
+      <p>{{ ProductDetails?.price | currency : "EGP" }}</p>
+    </div>
+  </div>
+</div>
